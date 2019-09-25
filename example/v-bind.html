@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="../assets/js/vue.js"></script>
+  <title>v-bind</title>
+</head>
+<body>
+  <h1>v-bind 实例</h1>
+  <hr>
+  <div id="app">
+    <p><img v-bind:src='imgSrc' alt="滑稽"></p>
+    <p><a :href="webUrl" target="_blank">技术胖</a></p>
+    <hr>
+    <div :class='className'>1. 绑定Class</div>
+    <div :class="{classA: isOk}">2. 绑定Class判断</div>
+    <div :class="[classA, classB]">3. 绑定Class数组</div>
+    <hr>
+    <div>
+      <input type="checkbox" id="isOk" v-model='isOk'>
+      <label for="isOk">isOk={{isOk}}</label>
+    </div>
+  </div>
+  <style>
+    .classA{
+      color: red;
+    }
+    .classB{
+      font-size: 150%
+    }
+  </style>
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        imgSrc: 'https://ae01.alicdn.com/kf/HTB1VP1dahD1gK0jSZFsq6zldVXaR.jpg',
+        webUrl: 'https://jspang.com',
+        className: 'classA',
+        isOk: false,
+        classA: 'classA',
+        classB: 'classB'
+      }
+    })
+  </script>
+</body>
+</html>
